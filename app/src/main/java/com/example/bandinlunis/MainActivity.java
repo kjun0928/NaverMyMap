@@ -1,14 +1,19 @@
 package com.example.bandinlunis;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -18,6 +23,7 @@ import com.naver.maps.geometry.LatLng;
 import com.naver.maps.map.LocationSource;
 import com.naver.maps.map.LocationTrackingMode;
 import com.naver.maps.map.MapFragment;
+import com.naver.maps.map.MapView;
 import com.naver.maps.map.NaverMap;
 import com.naver.maps.map.OnMapReadyCallback;
 import com.naver.maps.map.overlay.InfoWindow;
@@ -117,6 +123,10 @@ public class MainActivity<setPosition> extends AppCompatActivity implements OnMa
         coords.clear();
         markerNumber = 0;
     }
+    public void TT(View v) {
+        Intent intent=new Intent(MainActivity.this,SecondActivity.class);
+        startActivity(intent);
+    }
 
     public void text(LatLng coord) {
         Toast.makeText(this, coord.latitude + ", " + coord.longitude, Toast.LENGTH_SHORT).show();
@@ -156,7 +166,7 @@ public class MainActivity<setPosition> extends AppCompatActivity implements OnMa
                 if (markerNumber >= 3) {
                     polygon.setCoords(coords);
                     polygon.setMap(myMap);
-                    polygon.setColor(Color.BLACK);
+                    polygon.setColor(Color.BLUE);
                 };
             }
         });
